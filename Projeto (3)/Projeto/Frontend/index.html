@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Seção de Login -->
+        <div id="login-section" class="section">
+            <h1>Login</h1>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+                <p>Não tem uma conta? <a href="javascript:void(0);" onclick="showRegisterForm()">Cadastre-se</a></p>
+            </form>
+        </div>
+
+        <!-- Seção de Cadastro -->
+        <div id="register-section" class="section" style="display: none;">
+            <h1>Cadastro</h1>
+            <form id="register-form">
+                <input type="text" id="register-nome" placeholder="Nome Completo" required>
+                <input type="email" id="register-email" placeholder="Email" required>
+                <input type="password" id="register-password" placeholder="Senha" required>
+                <button type="submit">Cadastrar</button>
+                <p>Já tem uma conta? <a href="javascript:void(0);" onclick="showLoginForm()">Fazer login</a></p>
+            </form>
+        </div>
+
+        <!-- Seção de Tarefas -->
+        <div id="task-section" class="section" style="display: none;">
+            <h1>Gerenciar Tarefas</h1>
+            < <form id="tarefaForm">
+                <label for="descricao">Descrição</label>
+                <input type="text" id="descricao" name="descricao" required>
+          
+                <label for="categoria">Categoria</label>
+                <input type="text" id="categoria" name="categoria" required>
+          
+                <label for="data_inicial">Data Inicial</label>
+                <input type="date" id="data_inicial" name="data_inicial" required>
+          
+                <label for="data_final">Data Final</label>
+                <input type="date" id="data_final" name="data_final" required>
+          
+                <button type="submit">Criar Tarefa</button>
+              </form>
+          
+              <div id="resultado"></div>
+        
+
+
+              <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h3>Editar Tarefa</h3>
+                    <form id="editForm">
+                        <input type="hidden" id="editTarefaId">
+                        <label for="editDescricao">Descrição</label>
+                        <input type="text" id="editDescricao" required>
+        
+                        <label for="editDataInicial">Data Inicial</label>
+                        <input type="date" id="editDataInicial" required>
+        
+                        <label for="editDataFinal">Data Final</label>
+                        <input type="date" id="editDataFinal" required>
+        
+                        <label for="editStatus">Status</label>
+                        <select id="editStatus" required>
+                            <option value="pendente">Pendente</option>
+                            <option value="em_andamento">Em Andamento</option>
+                            <option value="concluida">Concluída</option>
+                        </select>
+        
+                        <label for="editCategoria">Categoria</label>
+                        <input type="text" id="editCategoria" required>
+        
+                        <button type="submit">Atualizar Tarefa</button>
+                    </form>
+                </div>
+            </div>
+            
+              <h2>Lista de Tarefas</h2>
+              <ul id="lista-tarefas"></ul>
+            
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
